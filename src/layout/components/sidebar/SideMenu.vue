@@ -2,7 +2,7 @@
  * @Author: kongweigen 421505648@qq.com
  * @Date: 2022-05-12 22:05:15
  * @LastEditors: kongweigen 421505648@qq.com
- * @LastEditTime: 2022-05-19 23:24:37
+ * @LastEditTime: 2022-05-24 22:18:22
  * @FilePath: \webpack-learne:\webProject\vue3\vue3-admin\src\layout\components\sidebar\SideMenu.vue
  * @Description: 
  * 
@@ -15,29 +15,25 @@
     active-text-color="#ffd04b"
     text-color="#fff"
     :collapse="appStore.collapse"
+    :router="true"
   >
     <div class="logo" :class="{ close: appStore.collapse }">
       <span v-if="!appStore.collapse">桃根管理</span>
-      <img v-else src="../../../assets/images/header/logo.png" />
+      <img v-else src="@/assets/images/header/logo.png" />
     </div>
-    <el-sub-menu index="1">
-      <template #title>
-        <el-icon><location /></el-icon>
-        <span>菜单1</span>
-      </template>
-      <el-menu-item index="1-1">item one</el-menu-item>
-      <el-menu-item index="1-2">item two</el-menu-item>
-    </el-sub-menu>
-    <el-menu-item index="2">
-      <template #title>菜单2</template>
-    </el-menu-item>
+    <SubMenu :menuItem="menuItem" v-for="menuItem in menuList"></SubMenu>
   </el-menu>
 </template>
 
 <script setup lang="ts">
-// import SideLogo from './SideLogo.vue'
+import SubMenu from './SubMenu.vue'
 import { useAppStore } from '@/stores/app'
+import type { Menu } from '@/types'
+import { ref } from 'vue'
+import menuData from '@/mock'
 const appStore = useAppStore()
+
+const menuList = ref(menuData as Array<Menu>)
 </script>
 <style lang="scss" scoped>
 .container {

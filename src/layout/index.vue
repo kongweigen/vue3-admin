@@ -2,7 +2,7 @@
  * @Author: kongweigen 421505648@qq.com
  * @Date: 2022-05-12 21:07:44
  * @LastEditors: kongweigen 421505648@qq.com
- * @LastEditTime: 2022-05-19 23:25:43
+ * @LastEditTime: 2022-05-24 22:43:27
  * @FilePath: \webpack-learne:\webProject\vue3\vue3-admin\src\layout\index.vue
  * @Description: 
  * 
@@ -13,11 +13,12 @@
     <el-aside :width="appStore.collapse ? '64px' : '200px'"
       ><Sidebar></Sidebar
     ></el-aside>
-    <el-container>
+    <el-container class="container">
       <el-header><Header></Header></el-header>
       <Tags></Tags>
-      <router-view></router-view>
-      <el-footer>Footer</el-footer>
+      <div class="app-main">
+        <router-view></router-view>
+      </div>
     </el-container>
   </el-container>
 </template>
@@ -35,5 +36,14 @@ const appStore = useAppStore()
 }
 .el-aside {
   transition: all 0.5s ease 0s;
+}
+.el-container {
+  &.container {
+    padding: 0 10px;
+  }
+  .app-main {
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
 }
 </style>

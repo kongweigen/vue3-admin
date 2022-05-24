@@ -2,14 +2,13 @@
  * @Author: kongweigen 421505648@qq.com
  * @Date: 2022-05-12 22:03:52
  * @LastEditors: kongweigen 421505648@qq.com
- * @LastEditTime: 2022-05-19 23:24:41
+ * @LastEditTime: 2022-05-24 21:35:56
  * @FilePath: \webpack-learne:\webProject\vue3\vue3-admin\src\layout\components\sidebar\index.vue
  * @Description: 
  * 
  * Copyright (c) 2022 by kongweigen 421505648@qq.com, All Rights Reserved. 
 -->
 <template>
-  <!-- <SideLogo></SideLogo> -->
   <SideMenu></SideMenu>
 </template>
 

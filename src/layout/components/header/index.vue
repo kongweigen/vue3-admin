@@ -2,7 +2,7 @@
  * @Author: kongweigen 421505648@qq.com
  * @Date: 2022-05-12 21:47:33
  * @LastEditors: kongweigen 421505648@qq.com
- * @LastEditTime: 2022-05-19 23:05:46
+ * @LastEditTime: 2022-05-24 22:25:22
  * @FilePath: \webpack-learne:\webProject\vue3\vue3-admin\src\layout\components\header\index.vue
  * @Description: 
  * 
@@ -13,10 +13,12 @@
     <img
       @click="switchMenu"
       class="img-open"
-      src="../../../assets/images/header/collapse.png"
+      :class="{ close: appStore.collapse }"
+      src="@/assets/images/header/collapse.png"
     />
-    <div>
+    <div class="right">
       <el-switch
+        class="switch"
         :class="[isDark ? '' : 'light']"
         v-model="isDark"
         active-color="#2c2c2c"
@@ -25,8 +27,10 @@
         :active-icon="Moon"
         :inactive-icon="Sunny"
       />
-      <span>扩展按钮</span>
-      <span>头像</span>
+      <!-- <span>扩展按钮</span> -->
+      <el-avatar
+        src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+      />
     </div>
   </div>
 </template>
@@ -69,6 +73,13 @@ const toggleDark = useToggle(isDark)
         .el-switch__inner
         .is-text) {
       color: #000;
+    }
+  }
+  .right {
+    display: flex;
+    align-items: center;
+    .switch {
+      margin-right: 20px;
     }
   }
 }

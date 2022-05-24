@@ -2,7 +2,7 @@
  * @Author: kongweigen 421505648@qq.com
  * @Date: 2022-05-19 23:27:06
  * @LastEditors: kongweigen 421505648@qq.com
- * @LastEditTime: 2022-05-19 23:28:12
+ * @LastEditTime: 2022-05-24 21:39:07
  * @FilePath: \webpack-learne:\webProject\vue3\vue3-admin\src\layout\components\sidebar\subMenu.vue
  * @Description: 
  * 
@@ -14,6 +14,9 @@
     v-if="menuItem.childList && menuItem.childList.length > 0"
   >
     <template #title>
+      <el-icon v-if="menuItem.icon"
+        ><component :is="menuItem.icon"></component
+      ></el-icon>
       <span>{{ menuItem.name }}</span>
     </template>
     <SubMenu
@@ -22,11 +25,15 @@
     ></SubMenu>
   </el-sub-menu>
   <el-menu-item :index="menuItem.url" v-else>
+    <el-icon v-if="menuItem.icon"
+      ><component :is="menuItem.icon"></component
+    ></el-icon>
     <span>{{ menuItem.name }}</span>
   </el-menu-item>
 </template>
 <script lang="ts" setup>
+import type { Menu } from '@/types'
 defineProps<{
-  menuItem: object
+  menuItem: Menu
 }>()
 </script>
