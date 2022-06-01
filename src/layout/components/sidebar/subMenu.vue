@@ -24,7 +24,7 @@
       v-for="subItem in menuItem.childList"
     ></SubMenu>
   </el-sub-menu>
-  <el-menu-item :index="menuItem.url" v-else>
+  <el-menu-item :index="menuItem.url" v-else @click="menuClick(menuItem)">
     <el-icon v-if="menuItem.icon"
       ><component :is="menuItem.icon"></component
     ></el-icon>
@@ -36,4 +36,6 @@ import type { Menu } from '@/types'
 defineProps<{
   menuItem: Menu
 }>()
+
+const menuClick = () => {}
 </script>

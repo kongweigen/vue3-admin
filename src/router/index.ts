@@ -31,6 +31,21 @@ const router = createRouter({
       ]
     },
     {
+      path: '/system',
+      component: Layout,
+      redirect: '/system/user',
+      children: [
+        {
+          path: 'user',
+          name: '用户管理',
+          meta: {
+            title: '用户管理'
+          },
+          component: () => import("@/views/system/user/index.vue")
+        }
+      ]
+    },
+    {
       path: '/hooks',
       component: Layout,
       redirect: '/hooks/hoverHooks',

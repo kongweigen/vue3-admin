@@ -4,9 +4,9 @@
  * @LastEditors: kongweigen 421505648@qq.com
  * @LastEditTime: 2022-05-24 22:37:20
  * @FilePath: \webpack-learne:\webProject\vue3\vue3-admin\src\mock\index.ts
- * @Description: 
- * 
- * Copyright (c) 2022 by kongweigen 421505648@qq.com, All Rights Reserved. 
+ * @Description:
+ *
+ * Copyright (c) 2022 by kongweigen 421505648@qq.com, All Rights Reserved.
  */
 export default [
   {
@@ -32,6 +32,20 @@ export default [
         id: '2.2',
         name: 'InViewportHooks',
         url: '/hooks/inViewportHooks',
+        childList: []
+      }
+    ]
+  },
+  {
+    id: '3',
+    name: '系统管理',
+    icon: 'StarFilled',
+    url: '',
+    childList: [
+      {
+        id: '3.1',
+        name: '用户管理',
+        url: '/system/user',
         childList: []
       }
     ]

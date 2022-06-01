@@ -10,5 +10,14 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  // 在根目录下的vite.config.ts修改server属性
+  server: {
+    proxy: {
+      '/api/v1': {
+        target: 'http://47.98.53.46:7001'
+      },
+      
+    }
   }
 })

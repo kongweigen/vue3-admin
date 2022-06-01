@@ -8,8 +8,7 @@
  * 
  * Copyright (c) 2022 by kongweigen 421505648@qq.com, All Rights Reserved. 
 -->
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <RouterView />

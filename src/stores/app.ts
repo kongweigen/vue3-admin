@@ -12,7 +12,7 @@ import { defineStore } from 'pinia'
 export const useAppStore = defineStore({
   id: 'appStore',
   state: () => {
-    return { collapse: false }
+    return { collapse: false, routeList: [] }
   },
   actions: {
     updateCollapse(val: boolean) {
