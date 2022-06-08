@@ -2,7 +2,7 @@
  * @Author: kongweigen 421505648@qq.com
  * @Date: 2022-05-12 20:20:58
  * @LastEditors: kongweigen 421505648@qq.com
- * @LastEditTime: 2022-05-24 22:37:04
+ * @LastEditTime: 2022-06-08 22:15:58
  * @FilePath: \webpack-learne:\webProject\vue3\vue3-admin\src\router\index.ts
  * @Description:
  *
@@ -31,6 +31,10 @@ const router = createRouter({
       ]
     },
     {
+      path: '/login',
+      component: () => import('@/views/login/index.vue')
+    },
+    {
       path: '/system',
       component: Layout,
       redirect: '/system/user',
@@ -41,7 +45,7 @@ const router = createRouter({
           meta: {
             title: '用户管理'
           },
-          component: () => import("@/views/system/user/index.vue")
+          component: () => import('@/views/system/user/index.vue')
         }
       ]
     },
@@ -63,6 +67,12 @@ const router = createRouter({
       ]
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  // ...
+  // 返回 false 以取消导航
+  next()
 })
 
 export default router

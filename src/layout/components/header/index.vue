@@ -28,25 +28,36 @@
         :inactive-icon="Sunny"
       />
       <!-- <span>扩展按钮</span> -->
-      <el-avatar
-        src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-      />
+      <el-dropdown>
+        <el-avatar
+          src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+        />
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item @click="logout">退出登录</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { Sunny, Moon } from '@element-plus/icons-vue'
-import { useDark, useToggle } from '@vueuse/core'
+import { useDark } from '@vueuse/core'
 import { useAppStore } from '@/stores/app'
-const appStore = useAppStore()
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
+const appStore = useAppStore()
 const switchMenu = () => {
   appStore.updateCollapse(!appStore.collapse)
 }
 
 const isDark = useDark()
-const toggleDark = useToggle(isDark)
+const logout = () => {
+  router.push('/login')
+}
 </script>
 <style lang="scss" scoped>
 .container {

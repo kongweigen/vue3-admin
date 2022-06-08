@@ -51,7 +51,12 @@
 import List from './components/list/index.vue'
 import Search from './components/search/index.vue'
 import { ref } from 'vue'
-import { queryUserList, createUser } from '@/api/user'
+import {
+  queryUserList,
+  createUser,
+  queryUserDetail,
+  deleteUserById
+} from '@/api/user'
 import type { User } from '@/types'
 
 const dialogVisible = ref(false)
@@ -77,8 +82,10 @@ const saveUser = async () => {
 
 // 操作
 const operateHandler = ({ row, type }: { row: User; type: string }) => {
-  if(type === 'view'){
-
+  if (type === 'view') {
+    queryUserDetail(row._id)
+  } else if (type === 'delete') {
+    deleteUserById(row._id)
   }
 }
 </script>

@@ -22,11 +22,21 @@
           class="p-l-0"
           type="primary"
           text
-          @click="operateHandler(scope.$row, 'view')"
+          @click="operateHandler(scope.row, 'view')"
           >详情</el-button
         >
-        <el-button type="primary" text>编辑</el-button>
-        <el-button type="primary" text>删除</el-button>
+        <el-button
+          type="primary"
+          text
+          @click="operateHandler(scope.row, 'update')"
+          >编辑</el-button
+        >
+        <el-button
+          type="primary"
+          text
+          @click="operateHandler(scope.row, 'delete')"
+          >删除</el-button
+        >
       </template>
     </el-table-column>
   </el-table>

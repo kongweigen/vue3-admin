@@ -2,7 +2,7 @@
  * @Author: kongweigen 421505648@qq.com
  * @Date: 2022-05-19 23:27:06
  * @LastEditors: kongweigen 421505648@qq.com
- * @LastEditTime: 2022-05-24 21:39:07
+ * @LastEditTime: 2022-06-08 22:08:48
  * @FilePath: \webpack-learne:\webProject\vue3\vue3-admin\src\layout\components\sidebar\subMenu.vue
  * @Description: 
  * 
@@ -33,9 +33,16 @@
 </template>
 <script lang="ts" setup>
 import type { Menu } from '@/types'
+import { useAppStore } from '@/stores/app'
+const appStore = useAppStore()
 defineProps<{
   menuItem: Menu
 }>()
 
-const menuClick = () => {}
+const menuClick = (menuItem: Menu) => {
+  appStore.addRouteList({
+    name: menuItem.name,
+    path: menuItem.url
+  })
+}
 </script>
